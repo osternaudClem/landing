@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e9e9e9;
+}
+
+.page {
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 80%;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 100px;
+  text-align: center;
+}
+
+.content {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 120px auto 0;
+  width: 60%;
+}
+
+.socials a {
+  color: inherit;
+  font-size: 22px;
+  text-decoration: none;
+  transition: transform .1s ease-in-out;
+}
+
+.socials a:hover {
+  transform: scale(1.6);
+}
+
+/* For desktop */
+@media only screen and (min-width: 700px) {
+  .page {
+    margin: 0 auto;
+    width: 600px;
+  }
+
+  .logo {
+    font-size: 160px;
+    margin-bottom: 80px;
+  }
+
+  .socials {
+    margin-top: 160px;
+  }
+}
