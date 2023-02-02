@@ -1,7 +1,10 @@
+import { useState } from 'react';
+import { ThemeContext } from './contexts/ThemeContext';
+import SocialLink from './components/SocialLink';
+import Lightswitch from './components/ThemeSwitch';
+
 import './App.css';
 import './assets/fonts/flat-icons.css';
-
-import SocialLink from './components/SocialLink';
 
 const SOCIALS = [
   {
@@ -27,24 +30,33 @@ const SOCIALS = [
 ];
 
 function App() {
-  return (
-    <div class="page">
-      <h1 class="logo">Cl3tus</h1>
-      <p class="content">
-        Bonjour, je suis Clément Osternaud (Cl3tus), j'ai 33 ans et je suis
-        développeur Front-End.
-      </p>
-      <p class="content">J'habite actuellement proche de Paris en France.</p>
+  const [theme, setTheme] = useState('light');
 
-      <div class="socials">
-        {SOCIALS.map((social) => (
-          <SocialLink
-            key={social.id}
-            {...social}
-          />
-        ))}
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`theme--${theme}`}>
+        <div className="page">
+          <Lightswitch />
+          <h1 className="logo">Cl3tus</h1>
+          <p className="content">
+            Bonjour, je suis Clément Osternaud (Cl3tus), j'ai 33 ans et je suis
+            développeur Front-End.
+          </p>
+          <p className="content">
+            J'habite actuellement proche de Paris en France.
+          </p>
+
+          <div className="socials">
+            {SOCIALS.map((social) => (
+              <SocialLink
+                key={social.id}
+                {...social}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </ThemeContext.Provider>
   );
 }
 

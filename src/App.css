@@ -12,6 +12,12 @@ body {
   margin: 0 auto;
   padding-top: 100px;
   width: 80%;
+  min-height: 100vh;
+}
+
+.theme--dark {
+  background-color: #202020;
+  color: #CACACA
 }
 
 .logo {
