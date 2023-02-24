@@ -9,10 +9,15 @@
     "directory-tree": "^3.5.1",
     "fs": "^0.0.1-security",
     "google-spreadsheet": "^3.3.0",
+    "i18next": "^22.4.10",
+    "i18next-browser-languagedetector": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
     "react-icons": "^4.7.1",
     "react-scripts": "5.0.1",
+    "spreadsheet-to-json": "^2.0.0",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -20,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "check-locale": "node scripts/checkLocale.js"
+    "check-locale": "node scripts/checkLocale.js",
+    "locale": "node scripts/getLocaleData.js"
   },
   "eslintConfig": {
     "extends": [

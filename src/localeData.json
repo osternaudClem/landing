@@ -1,0 +1,16 @@
+{
+	"en": {
+		"translation": {
+			"Hello ! I'm Clement Osternaud (know as Cl3tus), I'm 33 and I'm a front-end developer.": "Hello ! I'm Clement Osternaud (know as Cl3tus), I'm 33 and I'm a front-end developer.",
+			"I'm currently working at Winamax (Paris - France).": "I'm currently working at Winamax (Paris - France).",
+			"test": null
+		}
+	},
+	"fr": {
+		"translation": {
+			"Hello ! I'm Clement Osternaud (know as Cl3tus), I'm 33 and I'm a front-end developer.": "Bonjour, je suis Clément Osternaud (Cl3tus), j'ai 33 ans et je suis développeur Front-End.",
+			"I'm currently working at Winamax (Paris - France).": "Je suis actuellement en post chez Winamax (Paris).",
+			"test": null
+		}
+	}
+}

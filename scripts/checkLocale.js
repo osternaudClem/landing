@@ -58,15 +58,11 @@ module.exports = (async function (options = {}) {
       });
 
       const array = [...data.matchAll(REGEX)];
-      array.map((a) => localesKeys.push(a[1]));
+      return array.map((a) => localesKeys.push(a[1]));
     });
   }
 
   const doc = new GoogleSpreadsheet(options.sheet_id);
-
-  console.log('>>> options', options);
-
-  // return;
 
   try {
     await doc.useServiceAccountAuth({
@@ -77,7 +73,6 @@ module.exports = (async function (options = {}) {
     return console.log('>>> error', error);
   }
 
-  console.log('>>> Start');
   await loadSheet();
 
   async function loadSheet() {
@@ -90,8 +85,6 @@ module.exports = (async function (options = {}) {
       }
       return sheetKeys.push(row.key);
     });
-
-    console.log('>>> sheetKeys', sheetKeys);
 
     missingKeys = localesKeys.filter((x) => !sheetKeys.includes(x));
 
