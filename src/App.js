@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import GhostContentAPI from '@tryghost/content-api';
 import { ThemeContext } from './contexts/ThemeContext';
 import SocialLink from './components/SocialLink';
 
@@ -32,6 +33,13 @@ const SOCIALS = [
 
 const SCROLL_LIMIT = 200;
 
+// Create API instance with site credentials
+const api = new GhostContentAPI({
+  url: 'http://localhost:2368',
+  key: '5dd6719ff0ba079a87834fa9b8',
+  version: 'v5.0',
+});
+
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -59,6 +67,28 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrollPosition]);
+
+  useEffect(() => {
+    // declare the data fetching function
+    const fetchData = async () => {
+      const data = await getPosts();
+      console.log('>>> data', data);
+    };
+
+    // call the function
+    fetchData();
+    // make sure to catch any error
+  }, []);
+
+  const getPosts = async () => {
+    return await api.posts
+      .browse({
+        limit: 'all',
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme: updateTheme }}>
